@@ -2,10 +2,10 @@ jobs:
       folder('Github')
       multibranchPipelineJob('Github/Jenkins') {
         branchSources {
-          github {
-            id('12312313') 
-            repository('https://github.com/Yogeshwaran-Palanisamy/jenkins.git')
-          }
+          git {
+                  id = 'configuration-as-code'
+                  remote('https://github.com/Yogeshwaran-Palanisamy/jenkins.git')
+              }
         }
         orphanedItemStrategy {
           discardOldItems {
