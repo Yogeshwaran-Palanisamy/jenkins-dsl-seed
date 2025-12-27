@@ -18,6 +18,8 @@ jobs:
             libraries {
               libraryConfiguration {
                 name("jenkins-library")
+                defaultVersion("master")
+                implicit(true)
                 retriever {
                   modernSCM {
                     scm {
