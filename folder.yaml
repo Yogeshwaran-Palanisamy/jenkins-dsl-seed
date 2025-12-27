@@ -1,7 +1,5 @@
 jobs:
-  - script: >
       folder('Github')
-  - script: >
       multibranchPipelineJob('Github/Jenkins') {
         branchSources {
           github {
