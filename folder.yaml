@@ -1,0 +1,22 @@
+jobs:
+  - script: >
+      folder('Github')
+  - script: >
+      multibranchPipelineJob('Github/Jenkins') {
+        branchSources {
+          github {
+            id('12312313') 
+            repository('https://github.com/Yogeshwaran-Palanisamy/jenkins.git')
+          }
+        }
+        orphanedItemStrategy {
+          discardOldItems {
+            numToKeep(5)
+          }
+        }
+        triggers {
+          periodicFolderTrigger {
+            interval('5')
+          }
+        }
+      }
