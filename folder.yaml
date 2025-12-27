@@ -7,9 +7,33 @@ jobs:
                   remote('https://github.com/Yogeshwaran-Palanisamy/jenkins.git')
               }
         }
+        factory {
+          workflowBranchProjectFactory {
+            // Relative location within the checkout of your Pipeline script.
+            scriptPath("ci/jenkinsfile")
+            }
+          }
+        properties {
+          folderLibraries {
+            libraries {
+              libraryConfiguration {
+                name("jenkins-library")
+                retriever {
+                  modernSCM {
+                    scm {
+                      git {
+                        remote('https://github.com/Yogeshwaran-Palanisamy/jenkins-library.git')
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
         orphanedItemStrategy {
           discardOldItems {
-            numToKeep(5)
+            numToKeep(30)
           }
         }
         triggers {
