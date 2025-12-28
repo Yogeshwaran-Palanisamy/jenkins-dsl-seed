@@ -39,6 +39,7 @@ jobs:
           }
         }
         triggers {
+          githubPush()
           periodicFolderTrigger {
             interval('5')
           }
