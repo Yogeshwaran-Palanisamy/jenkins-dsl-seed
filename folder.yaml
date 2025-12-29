@@ -1,18 +1,6 @@
 jobs:
-      folder('Github')
-      multibranchPipelineJob('Github/Jenkins') {
-        branchSources {
-          git {
-                  id = 'configuration-as-code'
-                  remote('https://github.com/Yogeshwaran-Palanisamy/jenkins.git')
-              }
-        }
-        factory {
-          workflowBranchProjectFactory {
-            // Relative location within the checkout of your Pipeline script.
-            scriptPath("ci/jenkinsfile")
-            }
-          }
+      folder('Github') {
+        displayName('Github Projects')
         properties {
           folderLibraries {
             libraries {
@@ -33,9 +21,128 @@ jobs:
             }
           }
         }
+      }
+      multibranchPipelineJob('Github/Jenkins') {
+        branchSources {
+          git {
+            id = 'configuration-as-code'
+            remote('https://github.com/Yogeshwaran-Palanisamy/jenkins.git')
+          }
+        }
+        factory {
+          workflowBranchProjectFactory {
+            scriptPath("ci/jenkinsfile")
+          }
+          workflowBranchProjectFactory {
+            scriptPath("ci/Jenkinsfile")
+          }
+          workflowBranchProjectFactory {
+            scriptPath(".ci/Jenkinsfile")
+          }
+          workflowBranchProjectFactory {
+            scriptPath(".ci/jenkinsfile")
+          }
+        }
         orphanedItemStrategy {
           discardOldItems {
-            numToKeep(30)
+            numToKeep('5')
+          }
+        }
+        triggers {
+          periodicFolderTrigger {
+            interval('5')
+          }
+        }
+      }
+
+      multibranchPipelineJob('Github/Jenkins') {
+        branchSources {
+          git {
+            id = 'jenkins-library'
+            remote('https://github.com/Yogeshwaran-Palanisamy/jenkins-library.git')
+          }
+        }
+        factory {
+          workflowBranchProjectFactory {
+            scriptPath("ci/jenkinsfile")
+          }
+          workflowBranchProjectFactory {
+            scriptPath("ci/Jenkinsfile")
+          }
+          workflowBranchProjectFactory {
+            scriptPath(".ci/Jenkinsfile")
+          }
+          workflowBranchProjectFactory {
+            scriptPath(".ci/jenkinsfile")
+          }
+        }
+        orphanedItemStrategy {
+          discardOldItems {
+            numToKeep('5')
+          }
+        }
+        triggers {
+          periodicFolderTrigger {
+            interval('5')
+          }
+        }
+      }
+      multibranchPipelineJob('Github/Jenkins') {
+        branchSources {
+          git {
+            id = 'jenkins-dsl-seed'
+            remote('https://github.com/Yogeshwaran-Palanisamy/jenkin-dsl-seed.git')
+          }
+        }
+        factory {
+          workflowBranchProjectFactory {
+            scriptPath("ci/jenkinsfile")
+          }
+          workflowBranchProjectFactory {
+            scriptPath("ci/Jenkinsfile")
+          }
+          workflowBranchProjectFactory {
+            scriptPath(".ci/Jenkinsfile")
+          }
+          workflowBranchProjectFactory {
+            scriptPath(".ci/jenkinsfile")
+          }
+        }
+        orphanedItemStrategy {
+          discardOldItems {
+            numToKeep('5')
+          }
+        }
+        triggers {
+          periodicFolderTrigger {
+            interval('5')
+          }
+        }
+      }
+      multibranchPipelineJob('Github/Jenkins') {
+        branchSources {
+          git {
+            id = 'configuration-as-code'
+            remote('https://github.com/Yogeshwaran-Palanisamy/docker-images.git')
+          }
+        }
+        factory {
+          workflowBranchProjectFactory {
+            scriptPath("ci/jenkinsfile")
+          }
+          workflowBranchProjectFactory {
+            scriptPath("ci/Jenkinsfile")
+          }
+          workflowBranchProjectFactory {
+            scriptPath(".ci/Jenkinsfile")
+          }
+          workflowBranchProjectFactory {
+            scriptPath(".ci/jenkinsfile")
+          }
+        }
+        orphanedItemStrategy {
+          discardOldItems {
+            numToKeep('5')
           }
         }
         triggers {
