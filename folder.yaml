@@ -45,7 +45,7 @@ jobs:
         }
         orphanedItemStrategy {
           discardOldItems {
-            numToKeep('5')
+            numToKeep(5)
           }
         }
         triggers {
@@ -55,7 +55,7 @@ jobs:
         }
       }
 
-      multibranchPipelineJob('Github/Jenkins') {
+      multibranchPipelineJob('Github/Jenkins-Library') {
         branchSources {
           git {
             id = 'jenkins-library'
@@ -78,7 +78,7 @@ jobs:
         }
         orphanedItemStrategy {
           discardOldItems {
-            numToKeep('5')
+            numToKeep(5)
           }
         }
         triggers {
@@ -87,7 +87,7 @@ jobs:
           }
         }
       }
-      multibranchPipelineJob('Github/Jenkins') {
+      multibranchPipelineJob('Github/Jenkins-DSL-Seed') {
         branchSources {
           git {
             id = 'jenkins-dsl-seed'
@@ -110,7 +110,7 @@ jobs:
         }
         orphanedItemStrategy {
           discardOldItems {
-            numToKeep('5')
+            numToKeep(5)
           }
         }
         triggers {
@@ -119,7 +119,7 @@ jobs:
           }
         }
       }
-      multibranchPipelineJob('Github/Jenkins') {
+      multibranchPipelineJob('Github/Docker-Images') {
         branchSources {
           git {
             id = 'configuration-as-code'
@@ -142,7 +142,7 @@ jobs:
         }
         orphanedItemStrategy {
           discardOldItems {
-            numToKeep('5')
+            numToKeep(5)
           }
         }
         triggers {
