@@ -11,8 +11,9 @@ jobs:
                 retriever {
                   modernSCM {
                     scm {
-                      git {
-                        remote('https://github.com/Yogeshwaran-Palanisamy/jenkins-library.git')
+                      github {
+                        repositoryUrl('https://github.com/Yogeshwaran-Palanisamy/jenkins-library.git')
+                        credentialsId("continuous-integration-check")
                       }
                     }
                   }
@@ -24,9 +25,10 @@ jobs:
       }
       multibranchPipelineJob('Github/Jenkins') {
         branchSources {
-          git {
+          github {
             id = 'configuration-as-code'
-            remote('https://github.com/Yogeshwaran-Palanisamy/jenkins.git')
+            repository('jenkins')
+            scanCredentialsId("continuous-integration-check")
           }
         }
         factory {
@@ -57,9 +59,10 @@ jobs:
 
       multibranchPipelineJob('Github/Jenkins-Library') {
         branchSources {
-          git {
+          github {
             id = 'jenkins-library'
-            remote('https://github.com/Yogeshwaran-Palanisamy/jenkins-library.git')
+            repository('jenkins-library')
+            scanCredentialsId("continuous-integration-check")
           }
         }
         factory {
@@ -89,9 +92,10 @@ jobs:
       }
       multibranchPipelineJob('Github/Jenkins-DSL-Seed') {
         branchSources {
-          git {
+          github {
             id = 'jenkins-dsl-seed'
-            remote('https://github.com/Yogeshwaran-Palanisamy/jenkin-dsl-seed.git')
+            repository('jenkins-dsl-seed')
+            scanCredentialsId("continuous-integration-check")
           }
         }
         factory {
@@ -121,9 +125,10 @@ jobs:
       }
       multibranchPipelineJob('Github/Docker-Images') {
         branchSources {
-          git {
+          github {
             id = 'configuration-as-code'
-            remote('https://github.com/Yogeshwaran-Palanisamy/docker-images.git')
+            repository('docker-images')
+            scanCredentialsId("continuous-integration-check")
           }
         }
         factory {
