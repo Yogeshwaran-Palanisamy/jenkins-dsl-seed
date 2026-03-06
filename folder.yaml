@@ -14,6 +14,7 @@ jobs:
                       github {
                         repoOwner('Yogeshwaran-Palanisamy')
                         configuredByUrl(false)
+                        repository('jenkins-library')
                         repositoryUrl('https://github.com/Yogeshwaran-Palanisamy/jenkins-library.git')
                         credentialsId("continuous-integration-check")
                       }
