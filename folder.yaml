@@ -12,6 +12,8 @@ jobs:
                   modernSCM {
                     scm {
                       github {
+                        repoOwner('Yogeshwaran-Palanisamy')
+                        configuredByUrl(false)
                         repositoryUrl('https://github.com/Yogeshwaran-Palanisamy/jenkins-library.git')
                         credentialsId("continuous-integration-check")
                       }
@@ -27,8 +29,6 @@ jobs:
         branchSources {
           github {
             id = 'configuration-as-code'
-            repoOwner('Yogeshwaran-Palanisamy')
-            configuredByUrl(false)
             repository('jenkins')
             scanCredentialsId("continuous-integration-check")
           }
@@ -63,8 +63,6 @@ jobs:
         branchSources {
           github {
             id = 'jenkins-library'
-            repoOwner('Yogeshwaran-Palanisamy')
-            configuredByUrl(false)
             repository('jenkins-library')
             scanCredentialsId("continuous-integration-check")
           }
@@ -98,8 +96,6 @@ jobs:
         branchSources {
           github {
             id = 'jenkins-dsl-seed'
-            repoOwner('Yogeshwaran-Palanisamy')
-            configuredByUrl(false) 
             repository('jenkins-dsl-seed')
             scanCredentialsId("continuous-integration-check")
           }
@@ -133,8 +129,6 @@ jobs:
         branchSources {
           github {
             id = 'configuration-as-code'
-            repoOwner('Yogeshwaran-Palanisamy')
-            configuredByUrl(false)
             repository('docker-images')
             scanCredentialsId("continuous-integration-check")
           }
